@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wait a moment...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            max-width: 500px;
+            margin: auto;
+            padding: 30px;
+        }
+
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .countdown {
+            font-size: 20px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Currently Directing...</h2>
+        <p>Please wait a moment, You will be redirected immediately.</p>
+        <div class="loader"></div>
+        <p class="countdown">5 detik...</p>
+    </div>
+
+    <script>
+        let countdown = 5;
+        const countdownEl = document.querySelector('.countdown');
+        const targetURL = 'https://www.profitableratecpm.com/e3nnyxig?key=3ee75b9327425fd5d36be64a6836835c'; // Ganti dengan direct link Adsterra kamu
+
+        const timer = setInterval(() => {
+            countdown--;
+            countdownEl.textContent = countdown + " detik...";
+            if (countdown <= 0) {
+                clearInterval(timer);
+                window.location.href = targetURL;
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
